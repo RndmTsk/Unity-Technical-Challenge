@@ -34,38 +34,76 @@ Remember, this is your chance to show us your skills! We're focused on functiona
 4. Performance optimization [20 Points]
 5. Follow up interview [20 Points]
 
-
-# Solution
+## Solution
 
 This solution is a self-contained project which provides touch controls for interacting with the displayed models.
 
-## Controls
+### Controls
 
 A number of different elements can be controled by various gestures, and UI elements in the App
 
-### Gestures
+#### Gestures
 
 - A single finger swipe will rotate the model in the desired direction
 - Dragging with two fingers around the screen will translate the model
 - Pinching with two fingers will scale the model down, but no smaller than <INSERT MINIMUM SIZE>
 - Stretching with two fingers will scale the model up, but no bigger than <INSERT MAXIMUM SIZE>
 
-### Models
+#### Models
 
 - Different models can be selected by the buttons down the left-hand side of the view
 - Several are primitive shapes
 - A couple are more detailed, and complicated shapes, borrowed from existing Unity projects
 
-
-### Universal Render Pipeline
+#### URP Toggles
 
 - A few elements of the render pipeline can be controlled
 - ...
-
 
 ## Challenges
 
 - ...
 
+## References
+
+A log of articles I reviewed while getting back up to speed on the various elements of building Apps with Unity.
+
+### Unity UI
+
+- [uGUI Manual](https://docs.unity3d.com/Manual/com.unity.ugui.html)
+- [uGUI Tutorial](https://learn.unity.com/tutorial/creating-basic-ui-elements)
+- [uGUI Canvas](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/UICanvas.html)
+- [uGUI Optimization](https://unity3d.com/how-to/unity-ui-optimization-tips)
+
+### Input Management - Touches
+
+- [Touch on device - Legacy](https://docs.unity3d.com/ScriptReference/Input.GetTouch.html)
+- [Multi-touch on device - Legacy](https://docs.unity3d.com/ScriptReference/Input-touches.html)
+- [Mobile input - Legacy](https://docs.unity3d.com/Manual/MobileInput.html)
+- [New Input System](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/QuickStartGuide.html)
+
+### iOS Build Settings
+
+- [Building for iOS](https://docs.unity3d.com/Manual/BuildSettingsiOS.html)
+
+### Universal Render Pipeline
+
+- [URP Intro](https://blogs.unity3d.com/2019/09/20/how-the-lightweight-render-pipeline-is-evolving/)
+- [URP Sample Project](https://github.com/Verasl/BoatAttack)
+- [URP Conference Talk](https://www.youtube.com/watch?v=Bvl9rCVbMas)
+- [URP Manual - Shadows](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@11.0/manual/universalrp-asset.html#shadows)
+- [URP Control - Forum Topic](https://forum.unity.com/threads/urp-volume-cs-how-to-access-the-override-settings-at-runtime-via-script.813093/)
+- [URP SSAO](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@10.0/manual/post-processing-ssao.html)
+- [URP Skyboxes](https://docs.unity3d.com/Manual/skyboxes-using.html)
+
+### Assets
+
+- [Free Skyboxes](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)
+- [Viking Village - URP Sample](https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-urp-29140)
+- [Speed Tree](https://assetstore.unity.com/publishers/9474)
+
+### VSCode Environment Setup
+
+- [VSCode Setup Steps](https://code.visualstudio.com/docs/other/unity)
 
 Author: Terry Latanville
