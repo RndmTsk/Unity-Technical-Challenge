@@ -46,20 +46,28 @@ A number of different elements can be controled by various gestures, and UI elem
 
 - A single finger swipe will rotate the model in the desired direction
 - Dragging with two fingers around the screen will translate the model
-- Pinching with two fingers will scale the model down, but no smaller than the arbitrary value of `3`
-- Stretching with two fingers will scale the model up, but no bigger than the arbitrary value of `8`
+- Pinching with two fingers will scale the model down, but no smaller than the arbitrary value of `0.01`
+- Stretching with two fingers will scale the model up, but no bigger than the arbitrary value of `5`
 
 #### Models
 
-- Different models can be selected by the buttons down the left-hand side of the view
-- Several are primitive shapes
-- A couple are more detailed, and complicated shapes, borrowed from existing Unity projects
+- Different models can be selected in the settings view by selecting a different model in the dropdown
+- Several are primitive shapes, with a basic, reflective material
+- A couple are more detailed, and complicated shapes, borrowed from the URP demo
 
 #### URP Toggles
 
-Started implementing rudimentary controls for this in the form of simple sliders. I was hoping to have the scene in full-view while these toggles were being adjusted, but my UI is fairly primitive at the moment. Also, the initial values are manually set based on what they were in the scene, it'd be far more effective to detect these values on startup to pre-set the slider values.
+There are rudimentary controls to change URP values via sliders. I was hoping to have the scene in full-view while these toggles were being adjusted, but my UI is fairly primitive. Also, the initial values are manually set based on what they were in the scene, it'd be far more effective to detect these values on startup to pre-set the slider values.
 
 Ultimately, I would have liked to have a semi-transparent UI, or display a slider at the bottom of the screen (which would animate in) for the given Volume control selected.
+
+### Building the Project
+
+The project works as-is in the Unity Editor, however Scale, and Transform are only implemented on-device as they use touch controls.
+
+The project should be set to build to iOS when it is opened, so simply open the **Build Settings** window, and click **Build**, or **Build and Run**.
+
+Once the iOS project has been created, simply click the **Build and Run** button in Xcode to run on a device, or the simulator.
 
 ## Challenges
 
