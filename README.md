@@ -57,7 +57,9 @@ A number of different elements can be controled by various gestures, and UI elem
 
 #### URP Toggles
 
-- Did not get a chance to add controls for this unfortunately. It would be fairly simple to expand on my UI to allow for various Volume "dials" and "knobs" now that I have the UI and touch controls out of the way.
+Started implementing rudimentary controls for this in the form of simple sliders. I was hoping to have the scene in full-view while these toggles were being adjusted, but my UI is fairly primitive at the moment. Also, the initial values are manually set based on what they were in the scene, it'd be far more effective to detect these values on startup to pre-set the slider values.
+
+Ultimately, I would have liked to have a semi-transparent UI, or display a slider at the bottom of the screen (which would animate in) for the given Volume control selected.
 
 ## Challenges
 
@@ -84,6 +86,24 @@ It is nice that the `Canvas` auto-sizes to the screen, so hopefully, across the 
 ### Universal Render Pipeline
 
 Having worked with the legacy rendering system, there was quite a bit to get up to speed on with the new system. I reviewed a number of articles (linked below), and started with the sample project. I still don't have a great handle on all of the pieces of the pipeline, but I've tried to stick with elements that give a bit more appeal, but are still on the list of recommended for use in mobile Apps.
+
+I was able to expose a few elements, but it's in a very low-fi way, given more familiarity with all the various working pieces, I'd look for something more dynamic, possibly even something similar to Swift's keypaths:
+
+```swift
+struct Bloom {
+    var threshold: Float
+    var intensity: Float
+}
+
+// UI Callback
+func updateBloom(_ keyPath: KeyPath<Bloom, Float>, toNewValue newValue: Float) {
+    bloomInstance[keyPath: keyPath] = newValue
+}
+
+// UI Setup
+updateBloom(\.threshold, newValue)
+updateBloom(\.intensity, newValue)
+```
 
 ### Unity on iOS
 
@@ -125,26 +145,27 @@ A log of articles I reviewed while getting back up to speed on the various eleme
 - [Building for iOS](https://docs.unity3d.com/Manual/BuildSettingsiOS.html)
 - [Texture Support by Platform](https://docs.unity3d.com/Manual/class-TextureImporterOverride.html)
 
-### Universal Render Pipeline
+### URP Articles
 
 - [URP Intro](https://blogs.unity3d.com/2019/09/20/how-the-lightweight-render-pipeline-is-evolving/)
 - [URP Sample Project](https://github.com/Verasl/BoatAttack)
 - [URP Conference Talk](https://www.youtube.com/watch?v=Bvl9rCVbMas)
 - [URP Manual - Shadows](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@11.0/manual/universalrp-asset.html#shadows)
 - [URP Control - Forum Topic](https://forum.unity.com/threads/urp-volume-cs-how-to-access-the-override-settings-at-runtime-via-script.813093/)
+- [URP Script Access](https://forum.unity.com/threads/how-to-modify-post-processing-profiles-in-script.758375/)
 - [URP SSAO](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@10.0/manual/post-processing-ssao.html)
 - [URP Skyboxes](https://docs.unity3d.com/Manual/skyboxes-using.html)
+- [URP Properties - Bloom](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@7.1/manual/post-processing-bloom.html)
 
 ### Assets
 
 - [Free Skyboxes](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)
 - [Viking Village - URP Sample](https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-urp-29140)
-- [Speed Tree](https://assetstore.unity.com/publishers/9474)
+- [Speed Tree - NOT USED](https://assetstore.unity.com/publishers/9474)
 
 ### VSCode Environment Setup
 
 - [VSCode Setup Steps](https://code.visualstudio.com/docs/other/unity)
-
 
 ## Assets
 
