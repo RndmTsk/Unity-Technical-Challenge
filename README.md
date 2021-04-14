@@ -46,8 +46,8 @@ A number of different elements can be controled by various gestures, and UI elem
 
 - A single finger swipe will rotate the model in the desired direction
 - Dragging with two fingers around the screen will translate the model
-- Pinching with two fingers will scale the model down, but no smaller than <INSERT MINIMUM SIZE>
-- Stretching with two fingers will scale the model up, but no bigger than <INSERT MAXIMUM SIZE>
+- Pinching with two fingers will scale the model down, but no smaller than the arbitrary value of `3`
+- Stretching with two fingers will scale the model up, but no bigger than the arbitrary value of `8`
 
 #### Models
 
@@ -57,16 +57,43 @@ A number of different elements can be controled by various gestures, and UI elem
 
 #### URP Toggles
 
-- A few elements of the render pipeline can be controlled
-- ...
+- Did not get a chance to add controls for this unfortunately. It would be fairly simple to expand on my UI to allow for various Volume "dials" and "knobs" now that I have the UI and touch controls out of the way.
 
 ## Challenges
 
-- ...
+It had been quite a while since I worked with anything complicated in Unity. Much of my experience was prior to uGUI and the new Input system. I have developed movement, AI, and event scripts, so I drew upon that experience.
+
+### User Input
+
+My initial work was done with the older Input system where you needed to use `GetAxis` for keyboard and mouse input, and touches for iOS devices. I knew that if I was able to translate whatever input I received into an intermediary `struct`, I could build my App logic separately from whatever input system I settled on.
+
+Intuitive controls on mobile are a definitely a topic of debate, but I drew upon standard practices for the OS as well as other good examples like Google Maps to help inform my choices for App controls.
+
+Rotation via multiple fingers is always a bad feel, so I decided to devote single-finger swipes to rotation based on the starting point of the touch.
+
+Pinching for zooming is a common control which lent itself well to scaling, it feels intuitive. Similarly, stretching your fingers apart gives you a feel that the object should be getting larger. I decided to restrict the scale of the object to avoid having the object become so large it would take up the entire screen.
+
+### uGUI
+
+I had never used uGUI before, I had successfully integrated Scaleform into a previous project, so there was a lot to learn in a hurry. I started building with the legacy `OnGUI` just to get something in working order, I know it's not super performant on mobile devices, and it can take significant work to get it lined up, and looking decent, but any UI was a better than no UI. < WIP > ...
+
+### Universal Render Pipeline
+
+Having worked with the legacy rendering system, there was quite a bit to get up to speed on with the new system. I reviewed a number of articles (linked below), and started with the sample project. I still don't have a great handle on all of the pieces of the pipeline, but I've tried to stick with elements that give a bit more appeal, but are still on the list of recommended for use in mobile Apps.
+
+### Unity on iOS
+
+Working with Unity on iOS introduces a large amount of latency in a developer's cycle time. Much of what I built, was purposely done in the Editor as the cost of re-building the Xcode project, building to a simulator, and waiting for the simulator to load the App was orders of magnitude larger than building and running in the editor.
+
+The other challenge, is that you can't really fake touch events that use more than one touch input with only a mouse or keyboard. This meant I was able to get the rotation gesture done fairly quickly, but other gestures took much longer.
 
 ## References
 
 A log of articles I reviewed while getting back up to speed on the various elements of building Apps with Unity.
+
+### Unity Legacy GUI
+
+- [OnGUI Example](https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnGUI.html)
 
 ### Unity UI
 
@@ -74,6 +101,13 @@ A log of articles I reviewed while getting back up to speed on the various eleme
 - [uGUI Tutorial](https://learn.unity.com/tutorial/creating-basic-ui-elements)
 - [uGUI Canvas](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/UICanvas.html)
 - [uGUI Optimization](https://unity3d.com/how-to/unity-ui-optimization-tips)
+- [uGUI Element Sizing](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/HOWTO-UIFitContentSize.html)
+- [uGUI Events](https://learn.unity.com/tutorial/working-with-the-event-system)
+- [uGUI Button Clicks](https://www.youtube.com/watch?v=kdkrjCF0KCo)
+
+### Animations
+
+- [Animation Parameters](https://www.youtube.com/watch?v=q195HRyB_Aw)
 
 ### Input Management - Touches
 
@@ -85,6 +119,7 @@ A log of articles I reviewed while getting back up to speed on the various eleme
 ### iOS Build Settings
 
 - [Building for iOS](https://docs.unity3d.com/Manual/BuildSettingsiOS.html)
+- [Texture Support by Platform](https://docs.unity3d.com/Manual/class-TextureImporterOverride.html)
 
 ### Universal Render Pipeline
 
@@ -105,5 +140,12 @@ A log of articles I reviewed while getting back up to speed on the various eleme
 ### VSCode Environment Setup
 
 - [VSCode Setup Steps](https://code.visualstudio.com/docs/other/unity)
+
+
+## Assets
+
+- Baked-in URP sample project assets
+- [Clean Vector Icons](https://assetstore.unity.com/packages/2d/gui/icons/clean-vector-icons-132084)
+- [Skybox Series Free](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)
 
 Author: Terry Latanville
