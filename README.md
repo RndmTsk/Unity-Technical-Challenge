@@ -75,7 +75,11 @@ Pinching for zooming is a common control which lent itself well to scaling, it f
 
 ### uGUI
 
-I had never used uGUI before, I had successfully integrated Scaleform into a previous project, so there was a lot to learn in a hurry. I started building with the legacy `OnGUI` just to get something in working order, I know it's not super performant on mobile devices, and it can take significant work to get it lined up, and looking decent, but any UI was a better than no UI. < WIP > ...
+I had never used uGUI before, I had successfully integrated Scaleform into a previous project, so there was a lot to learn in a hurry. I started building with the legacy `OnGUI` just to get something in working order, I know it's not super performant on mobile devices, and it can take significant work to get it lined up, and looking decent, but any UI was a better than no UI.
+
+After a few tutorials, I was able to figure out how to hook up button events, and roughly lay out UI. It definitely feels like the layout system could use some work, as working with auto-layout, or SwiftUI in iOS is much more intuitive and leads to less guesswork.
+
+It is nice that the `Canvas` auto-sizes to the screen, so hopefully, across the gamut of different screen sizes, my UIs won't be cut off.
 
 ### Universal Render Pipeline
 
